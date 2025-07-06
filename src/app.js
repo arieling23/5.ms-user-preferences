@@ -26,7 +26,7 @@ app.use('/', preferencesRoutes);
 // Ruta raíz de prueba
 app.get('/', (_, res) => res.send('✅ ms-user-preferences activo'));
 
-// Ruta no encontrada
+
 app.use((req, res) => {
   res.status(404).json({ message: 'Ruta no encontrada' });
 });
