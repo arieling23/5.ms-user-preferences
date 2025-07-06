@@ -1,4 +1,4 @@
-const Joi = require('joi'); // ⬅️ Importar Joi
+const Joi = require('joi'); 
 const {
   getPreferencesByUserId,
   updatePreferences,
@@ -17,7 +17,7 @@ const getMyPreferences = async (req, res) => {
 
 // PUT /me
 const updateMyPreferences = async (req, res) => {
-  // ✅ Esquema de validación
+  //  Esquema de validación
   const schema = Joi.object({
     language: Joi.string().valid('es', 'en').optional(),
     theme: Joi.string().valid('light', 'dark').optional(),
