@@ -1,5 +1,5 @@
 // app.js
-require('dotenv').config(); // Carga variables de entorno
+require('dotenv').config(); 
 
 const express = require('express');
 const cors = require('cors');
