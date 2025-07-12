@@ -15,7 +15,7 @@ const getMyPreferences = async (req, res) => {
   }
 };
 
-// PUT /me
+
 const updateMyPreferences = async (req, res) => {
   //  Esquema de validación
   const schema = Joi.object({
