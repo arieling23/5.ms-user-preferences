@@ -24,7 +24,7 @@ app.use(express.json());
 connectDB();
 
 
-app.use('/api/preferences', preferencesRoutes);
+app.use('/preferences', preferencesRoutes);
 
 
 app.get('/', (_, res) => res.send('✅ ms-user-preferences activo'));
