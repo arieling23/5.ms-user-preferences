@@ -1,6 +1,11 @@
 const jwt = require('jsonwebtoken');
 
 const verifyJWT = (req, res, next) => {
+ 
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+
   const authHeader = req.headers['authorization'];
   console.log('🧪 Header recibido:', authHeader);
 
