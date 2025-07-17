@@ -8,7 +8,7 @@ const connectDB = require('./config/db');
 
 const app = express();
 
-// Configuración CORS desde variable de entorno
+
 const corsOptions = {
   origin: process.env.CORS_ORIGIN || '*',
   optionsSuccessStatus: 200
@@ -17,13 +17,13 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Conexión a MongoDB
+
 connectDB();
 
-// Rutas protegidas
-app.use('/', preferencesRoutes);
 
-// Ruta raíz de prueba
+app.use('/api/preferences', preferencesRoutes);
+
+
 app.get('/', (_, res) => res.send('✅ ms-user-preferences activo'));
 
 
@@ -31,7 +31,7 @@ app.use((req, res) => {
   res.status(404).json({ message: 'Ruta no encontrada' });
 });
 
-// Manejador global de errores
+
 app.use((err, req, res, next) => {
   console.error('❌ Error general:', err);
   res.status(500).json({ message: 'Error interno del servidor' });

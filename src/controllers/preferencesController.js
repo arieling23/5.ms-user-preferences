@@ -17,7 +17,7 @@ const getMyPreferences = async (req, res) => {
 
 
 const updateMyPreferences = async (req, res) => {
-  //  Esquema de validación
+
   const schema = Joi.object({
     language: Joi.string().valid('es', 'en').optional(),
     theme: Joi.string().valid('light', 'dark').optional(),
@@ -35,7 +35,7 @@ const updateMyPreferences = async (req, res) => {
   }
 
   try {
-    const updated = await updatePreferences(req.user.userId, value); // ⬅️ Usamos los datos validados
+    const updated = await updatePreferences(req.user.userId, value); 
     res.status(200).json(updated);
   } catch (err) {
     res.status(500).json({ message: 'Error al actualizar preferencias', error: err.message });
