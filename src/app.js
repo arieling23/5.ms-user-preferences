@@ -1,4 +1,3 @@
-// app.js
 require('dotenv').config(); 
 
 const express = require('express');
@@ -10,11 +9,15 @@ const app = express();
 
 
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN || '*',
+  origin: process.env.CORS_ORIGIN || 'http://54.225.75.133:3000', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
   optionsSuccessStatus: 200
 };
 
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); 
 app.use(express.json());
 
 
@@ -37,8 +40,8 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Error interno del servidor' });
 });
 
-const PORT = process.env.PORT || 4004;
 
+const PORT = process.env.PORT || 4004;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor ms-user-preferences corriendo en puerto ${PORT}`);
 });
