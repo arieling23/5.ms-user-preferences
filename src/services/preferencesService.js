@@ -3,7 +3,7 @@ const Preferences = require('../models/Preferences');
 const getPreferencesByUserId = async (userId) => {
   let prefs = await Preferences.findOne({ userId });
 
-  // Si no existen, crear con valores por defecto
+  
   if (!prefs) {
     prefs = await Preferences.create({ userId });
   }

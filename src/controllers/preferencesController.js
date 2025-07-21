@@ -5,7 +5,7 @@ const {
   resetPreferences
 } = require('../services/preferencesService');
 
-// GET /me
+
 const getMyPreferences = async (req, res) => {
   try {
     const prefs = await getPreferencesByUserId(req.user.userId);
@@ -42,7 +42,7 @@ const updateMyPreferences = async (req, res) => {
   }
 };
 
-// POST /reset
+
 const resetMyPreferences = async (req, res) => {
   try {
     const reset = await resetPreferences(req.user.userId);
